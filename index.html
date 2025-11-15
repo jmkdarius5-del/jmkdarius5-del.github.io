@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roblox Game Verification Upload</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #001f3f, #0053a6);
+        color: white;
+        text-align: center;
+        padding: 60px;
+    }
+    .container {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 25px;
+        border-radius: 15px;
+        box-shadow: 0 0 20px rgba(0,0,0,0.3);
+        width: 70%;
+        margin: auto;
+    }
+    textarea {
+        width: 90%;
+        height: 180px;
+        border-radius: 10px;
+        padding: 10px;
+        border: none;
+        outline: none;
+        resize: none;
+    }
+    button {
+        margin-top: 15px;
+        padding: 12px 25px;
+        font-size: 18px;
+        border: none;
+        background: #00d9ff;
+        color: black;
+        cursor: pointer;
+        border-radius: 10px;
+        transition: 0.3s;
+    }
+    button:hover {
+        background: #00ffea;
+    }
+    .success {
+        display: none;
+        margin-top: 20px;
+        font-size: 22px;
+        color: #7CFC00;
+        animation: fadeIn 1s ease-in-out forwards;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+</style>
+</head>
+<body>
+<div class="container">
+<h1>🔐 Roblox Game Verification Portal</h1>
+<p>Paste your verification PowerShell text below</p>
+
+<textarea id="psInput" placeholder="Paste PowerShell verification content here..."></textarea><br>
+
+<button onclick="submitVerification()">Submit for Verification</button>
+
+<p class="success" id="successMsg">✔ Verification Submitted Successfully!</p>
+</div>
+
+<script>
+function submitVerification() {
+    let input = document.getElementById("psInput").value;
+    if(input.trim().length === 0){
+        alert("Please paste the PowerShell text first.");
+        return;
+    }
+    localStorage.setItem("verificationData", input);
+    document.getElementById("successMsg").style.display = "block";
+}
+</script>
+
+</body>
+</html>
